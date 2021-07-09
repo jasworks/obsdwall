@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  include header
+
+  div(class="wrapper")
+    div(class="form-signin")
+      h1 System Information
+      h2 #{hostname}
+      each interface, index in interfaces
+        table(style='width:100%')
+          thead
+            tr
+              th(style='width:50%') Interface #{index}
+              th(style='width:50%') Address
+          tbody
+            each val in interface
+              tr
+                td #{val.family}
+                td #{val.cidr}
+        p
